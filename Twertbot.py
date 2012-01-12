@@ -18,7 +18,6 @@ API = twitter.Api(consumer_key='######################',
 
 def prepareTweet(target):
     #This method composes the tweet
-    retries += 1
     tweet = '$USERNAME '        #enter your tweet after $USERNAME, don't delete $USERNAME, just leave one space after it
     tweet = tweet.replace('$USERNAME', '@%s' % target.user.screen_name)
     if len(tweet) < 141:        #remember: tweets can only be 140 chars long
