@@ -42,11 +42,11 @@ def searcher():
 if __name__ == '__main__':
     #main method, calls other methods and updates a counter to let you know how many tweets you've made
     while True:
+            counter += 1
             target = searcher()
-            counter = 0
             if target:
                 result = makeTweet(target)
-                counter += 1
+
                 print '#%s Done' % counter
                 time.sleep(120)         #This is the time in seconds to wait between each tweet. If you are 
                                         #searching for an obscure-ish term,
