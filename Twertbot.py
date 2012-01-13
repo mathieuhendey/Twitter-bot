@@ -18,6 +18,7 @@ API = twitter.Api(consumer_key='######################',
 
 def prepareTweet(target):
     #This method composes the tweet
+    retries += 1
     tweet = '$USERNAME '        #enter your tweet after $USERNAME, don't delete $USERNAME, just leave one space after it
     tweet = tweet.replace('$USERNAME', '@%s' % target.user.screen_name)
     if len(tweet) < 141:        #remember: tweets can only be 140 chars long
@@ -41,12 +42,13 @@ def searcher():
 
 if __name__ == '__main__':
     #main method, calls other methods and updates a counter to let you know how many tweets you've made
+    counter = 0
     while True:
-            counter += 1
             target = searcher()
+            counter = 0
             if target:
                 result = makeTweet(target)
-
+                counter += 1
                 print '#%s Done' % counter
                 time.sleep(120)         #This is the time in seconds to wait between each tweet. If you are 
                                         #searching for an obscure-ish term,
