@@ -45,7 +45,6 @@ if __name__ == '__main__':
     counter = 0
     while True:
             target = searcher()
-            counter = 0
             if target:
                 result = makeTweet(target)
                 counter += 1
